@@ -6,21 +6,25 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/08/26 19:17:28 by pschmunk         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:23:05 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../includes/minishell.h"
 
-int	main(void)
+int	main(int ac, char **av, char **env)
 {
-	char			*input;
-	t_command		*cmds;
-	char			*command;
-	int				i;
-	t_args			*cmds_copy;
+	int			i;
+	char		*input;
+	char		*command;
+	t_command	*cmds;
+	t_env		*env_list;
+	t_args		*cmds_copy;
 
+	(void)ac;
+	(void)av;
+	env_list = built_env_list(env);
 	signal(SIGINT, signal_handler);
 	signal(SIGQUIT, SIG_IGN);
 	while (1)
@@ -41,7 +45,7 @@ int	main(void)
 			}
 			add_history(input);
 			if (command != NULL)
-				execute(find_cmd_path(command), cmds_copy, i);
+				forking(cmds, (cmds->pipe_num + 1));
 		}
 		else
 		{

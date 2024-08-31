@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:36:33 by pschmunk          #+#    #+#             */
-/*   Updated: 2024/08/28 20:40:11 by pschmunk         ###   ########.fr       */
+/*   Updated: 2024/08/31 19:42:00 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ char	*create_word(char *str, int i, char c)
 
 	if (str[i] == ' ')
 	{
-		word = (char *)ft_malloc(2 * sizeof(char));
+		word = (char *)ft_malloc(2 * sizeof(char), R_NULL);
 		word[0] = ' ';
 		word[1] = '\0';
 		return (word);
 	}
 	len = word_len(str, i, c);
-	word = (char *)ft_malloc((len + 1) * sizeof(char));
+	word = (char *)ft_malloc((len + 1) * sizeof(char), R_NULL);
 	word[len] = '\0';
 	len = 0;
 	while (str[i] != '\0' && str[i] != c)
@@ -123,8 +123,8 @@ char	**custom_split(char *str, char c, t_split_mode mode)
 
 	len = count_words(str, c, mode);
 	printf("LEN: %d\n", len);
-	words = (char **)ft_malloc((len + 1) * sizeof(char *));
-	null_ptr = (char *)ft_malloc(1 * sizeof(char));
+	words = (char **)ft_malloc((len + 1) * sizeof(char *), R_NULL);
+	null_ptr = (char *)ft_malloc(1 * sizeof(char), R_NULL);
 	null_ptr = NULL;
 	words[len] = null_ptr;
 	i = 0;

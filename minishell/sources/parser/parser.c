@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 14:03:17 by pschmunk          #+#    #+#             */
-/*   Updated: 2024/08/29 21:23:48 by pschmunk         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:09:14 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ t_command	*parse(char *input)
 	cmds->args = NULL;
 	cmds->pipe_num = 0;
 	cmds = add_commands(cmds, tokens);
-	start_debug_mode(words, num_tokens, tokens, num_cmds, cmds);
+	// start_debug_mode(words, num_tokens, tokens, num_cmds, cmds);
 	return (cmds);
 }

@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:07:03 by pschmunk          #+#    #+#             */
-/*   Updated: 2024/08/28 19:11:16 by pschmunk         ###   ########.fr       */
+/*   Updated: 2024/08/31 19:42:13 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_token	*lstnew_token(void *content, t_token_type type)
 {
 	t_token	*new_node;
 
-	new_node = ft_malloc(sizeof(t_token));
+	new_node = ft_malloc(sizeof(t_token), R_NULL);
 	new_node->value = content;
 	new_node->type = type;
 	new_node->next = NULL;

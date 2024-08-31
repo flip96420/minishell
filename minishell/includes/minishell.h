@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:18:01 by pschmunk          #+#    #+#             */
-/*   Updated: 2024/08/29 21:22:39 by pschmunk         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:23:15 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ t_command 		*parse(char *input);
 t_env			*create_node(char *env_var);
 t_env			*built_env_list(char *envp[]);
 void			free_env(t_env *head);
-void			add_to_env_list(t_env **env_list, const char *var);
+void			add_to_env_list(t_env **env_list, char *var);
 void			do_hdoc(t_token *token);
 char*			find_cmd_path(char *command);
 void			execute(char *cmd_path, t_args *cmds, int num_args);
@@ -149,8 +149,8 @@ int				count_env_vars(t_env *env_list);
 void			bubble_sort_env_vars(t_env **env_array, int count);
 void			ft_setenv(t_env **env_list, char *key, char *value);
 void			swap_env_vars(t_env **a, t_env **b);
-void			exec_command(t_command *command, t_env *env_list);
-int				forking(t_command *command, t_env *env_list, int process_num);
+void			exec_command(t_command *command);
+int				forking(t_command *command, int process_num);
 char			*get_path(char *command, t_env *env_list);
 
 //UTILS
